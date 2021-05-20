@@ -8,8 +8,8 @@ const pool = new Pool({
 });
 
 const insertloan = (request, response) => {
-const {id,created,updated,loan_status_id,loan_resource_type_id,loan_type_id} = request.body
-  pool.query( "INSERT INTO cbanc.loan (id,created,updated,loan_status_id,loan_resource_type_id,loan_type_id) VALUES ($1,$2,$3,$4,$5,$6)",[id,created,updated,loan_status_id,loan_resource_type_id,loan_type_id], (error, results) => {
+const {id,created,loan_status_id,loan_resource_type_id,loan_type_id} = request.body
+  pool.query( "INSERT INTO cbanc.loan (id,created,loan_status_id,loan_resource_type_id,loan_type_id) VALUES ($1,$2,$3,$4,$5)",[id,created,loan_status_id,loan_resource_type_id,loan_type_id], (error, results) => {
     if (error) {
       throw error
     }
